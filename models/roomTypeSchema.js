@@ -1,0 +1,19 @@
+const { model, Schema } = require("mongoose");
+const ObjectId = Schema.Types.ObjectId;
+const auth = require("./hotel/auth");
+
+// Define the schema for the RoomType model
+const RoomTypeSchema = new Schema({
+  _id: {
+    type: ObjectId,
+  },
+  name: {
+    type: String,
+    required: [true, "Please specify the roomtype name"],
+  },
+});
+
+// Create the RoomType collection
+const RoomType = model("RoomType", RoomTypeSchema);
+
+module.exports = RoomType;
